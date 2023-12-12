@@ -48,10 +48,10 @@ h5 {
 }
 
 /* === NATIVE GRID LAYOUT === */
-#main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-}
+/*#main-content {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr;*/
+/*}*/
 
 /* === NATIVE NAV ===*/
 #native-nav {
@@ -92,14 +92,14 @@ h5 {
 
 
 /* === PAGE HEADER === */
-#header-container {
-    margin: 3.5em 0;
-    height: 75px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: white;
-    grid-template-areas: "boxlogo boxlogo boxlogo";
-}
+/*#header-container {*/
+/*    margin: 3.5em 0;*/
+/*    height: 75px;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    background-color: white;*/
+/*    grid-template-areas: "boxlogo boxlogo boxlogo";*/
+/*}*/
 
 #logo-container {
     position: relative;
@@ -156,11 +156,7 @@ h5 {
 }
 
 #pillar-div-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-row-gap: .5em;
-    grid-column-gap: 1.5em;
+    display: flex;
     margin: 2.5em;
 }
 
@@ -227,6 +223,7 @@ hr {
 }
 
 .featured-project-image {
+    display: flex;
     grid-area: 1 / 1 / 2 / -1;
     width: 100%;
     border: 5px solid var(--gray-dark);
@@ -534,12 +531,13 @@ hr {
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     #large-breakpoint-container {
-        display: grid;
-        grid-template-areas: ". main main main . " ". main main main . " ". main main main . " ". main main main . " ". main main main . " ". main main main . ";
+        display: flex; /* Change from grid to flex */
+        /* grid-template-areas: ". main main main . "; */ /* Remove this line */
     }
 
     #main-content {
-        grid-area: main;
+        /* grid-area: main; */ /* Remove this line */
+        flex: 1; /* Set flex: 1 to allow the #main-content to take up available space */
     }
 
     hr {
@@ -549,5 +547,4 @@ hr {
     #med-grid {
         margin: 0 0 0 18%;
     }
-
 }
