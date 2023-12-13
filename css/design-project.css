@@ -47,13 +47,11 @@ h5 {
     font-size: 28px;
 }
 
-/* === NATIVE GRID LAYOUT === */
-/*#main-content {*/
-/*    display: grid;*/
-/*    grid-template-columns: 1fr;*/
-/*}*/
+#main-content {
+    display: flex;
+    flex-direction: column;
+}
 
-/* === NATIVE NAV ===*/
 #native-nav {
     height: 3em;
     margin: 0.5em 0;
@@ -65,8 +63,8 @@ h5 {
 #native-nav-list {
     display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: flex-start;
     height: 2em;
     padding: 0;
     margin: 0;
@@ -90,21 +88,10 @@ h5 {
     display: none;
 }
 
-
 /* === PAGE HEADER === */
-/*#header-container {*/
-/*    margin: 3.5em 0;*/
-/*    height: 75px;*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(3, 1fr);*/
-/*    background-color: white;*/
-/*    grid-template-areas: "boxlogo boxlogo boxlogo";*/
-/*}*/
-
 #logo-container {
     position: relative;
     display: flex;
-    grid-area: boxlogo;
 }
 
 #medhead {
@@ -123,6 +110,7 @@ h5 {
 
 /* === TITLE: COMPANY NAME === */
 #company-name {
+    display: none;
     font-family: 'Abel', sans-serif;
     font-size: 3em;
     text-align: center;
@@ -130,24 +118,12 @@ h5 {
     margin: 0;
 }
 
-
 /* === COMPANY ABOUT === */
 #company-about-container {
     width: 100vw;
     text-align: center;
 }
 
-#company-page-title {
-    margin: .5em 0;
-}
-
-#main-location-title {
-    margin: 24px 0;
-}
-
-#company-location-header {
-    margin-bottom: 0;
-}
 
 /* === 4 MAIN PILLARS === */
 #pillar-container {
@@ -217,15 +193,16 @@ hr {
 .featured-project-card {
     width: 80%;
     margin: 0 auto;
-    display: grid;
-    grid-template-rows: 1fr 1.5em;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .featured-project-image {
+    flex: 1;
     display: flex;
-    grid-area: 1 / 1 / 2 / -1;
     width: 100%;
+    grid-area: 1 / 1 / 2 / -1;
     border: 5px solid var(--gray-dark);
     border-radius: 3px;
 }
@@ -233,6 +210,7 @@ hr {
 .featured-project-name {
     font-family: 'Abel', sans-serif;
     grid-area: 2 / 1 / 3 / 2;
+    align-content: space-between;
     margin-top: 5px;
 }
 
@@ -244,13 +222,13 @@ hr {
     margin-left: auto;
 }
 
+/*This is our little bubbles with letters in them for each pic*/
+
 .featured-pillar {
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 10px;
-
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -338,9 +316,11 @@ hr {
         grid-template-rows: 1fr 1fr;
     }
 
+    /*starts applying the styles from the second child onwards.*/
     #featured-projects-container section:nth-child(n+2) {
         display: inherit;
     }
+
 
     .featured-project-card {
         width: 100%;
@@ -441,7 +421,7 @@ hr {
     }
 
     .featured-project-card {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 200px 100px;
     }
 
     .featured-project-name {
